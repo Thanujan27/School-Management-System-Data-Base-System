@@ -1,0 +1,39 @@
+-- Admins
+INSERT INTO admin (id, password, email)
+VALUES
+  (1, 'password1', 'johndoe@example.com'),
+  (2, 'password2', 'janedoe@example.com');
+
+-- Students
+INSERT INTO student (StudentId, StudentName, StudentEmail, StudentMobileNo, StudentAddress , StudentPassword)
+VALUES
+  (1, 'Alice', 'alicesmith@example.com', '555-9012', '123 Main St, Anytown, USA', 'password3'),
+  (2, 'Bob', 'bobjohnson@example.com', '555-3456', '456 Broad St, Anytown, USA', 'password4'),
+  (3, 'Charlie', 'charlielee@example.com', '555-7890', '789 Maple Ave, Anytown, USA', 'password5');
+
+-- Teachers
+INSERT INTO teacher (TeacherId, TeacherName, TeacherEmail, TeacherMobileNo, TeacherAddress, TeacherPassword)
+VALUES
+  (1, 'Emily', 'emilyjones@example.com', '555-2345', '234 Elm St, Anytown, USA', 'password6'),
+  (2, 'David', 'davidnguyen@example.com', '555-6789', '567 Oak St, Anytown, USA', ' password7'),
+  (3, 'Maria', 'mariagarcia@example.com', '555-0123', '890 Pine St, Anytown, USA', 'password8');
+
+-- Grades
+INSERT INTO grades (id, studentId, teacherId, CourseName, grade)
+VALUES
+  (1, 1, 1, 'Math', 'A'),
+  (2, 1, 1, 'Science', 'B+'),
+  (3, 1, 2, 'History', 'A-'),
+  (4, 2, 2, 'Math', 'C'),
+  (5, 2, 2, 'Science', 'B-'),
+  (6, 2, 3, 'History', 'A'),
+  (7, 3, 3, 'Math', 'B'),
+  (8, 3, 3, 'Science', 'B+'),
+  (9, 3, 1, 'History', 'A-');
+
+-- Transactions
+INSERT INTO transactions (TransactionId, StudentId, TransactionMethod, Amount, TransactionDate)
+VALUES
+  (1, 1, 'payment', 100.00, '2022-01-01'),
+  (2, 1, 'refund', -50.00, '2022-02-01'),
+  (3, 2, 'payment', 75.00, '2022-01-15');
