@@ -1,0 +1,50 @@
+CREATE TABLE admin (
+  id INT PRIMARY KEY,
+  email VARCHAR(100),
+  password VARCHAR(50)
+);
+
+CREATE TABLE student (
+  StudentId INT PRIMARY KEY,
+  StudentName VARCHAR(50),
+  StudentEmail VARCHAR(100),
+  StudentMobileNo VARCHAR(20),
+  StudentAddress VARCHAR(200),
+  StudentPassword VARCHAR(50)
+);
+
+CREATE TABLE teacher (
+TeacherId INT PRIMARY KEY,
+TeacherName VARCHAR(50),
+TeacherEmail VARCHAR(100),
+TeacherMobileNo VARCHAR(20),
+TeacherAddress VARCHAR(200),
+TeacherPassword VARCHAR(50)
+);
+
+CREATE TABLE school (
+  SchoolId INT PRIMARY KEY,
+  SchoolName VARCHAR(100),
+  NumberOfRooms INT,
+  NumberOfStaff INT,
+  Level ENUM('primary', 'secondary', 'tertiary')
+);
+
+CREATE TABLE grades (
+  id INT PRIMARY KEY,
+  studentId INT,
+  teacherId INT,
+  CourseName VARCHAR(100),
+  grade VARCHAR(2),
+  FOREIGN KEY (StudentId) REFERENCES student(StudentId),
+  FOREIGN KEY (TeacherId) REFERENCES teacher(TeacherId)
+);
+
+CREATE TABLE transactions (
+  TransactionId INT PRIMARY KEY,
+  StudentId INT,
+  TransactionMethod ENUM('payment', 'refund'),
+  Amount DECIMAL(10,2),
+  TransactionDate DATE,
+  FOREIGN KEY (StudentId) REFERENCES student(StudentId)
+);
